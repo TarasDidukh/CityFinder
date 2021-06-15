@@ -6,11 +6,17 @@
 //
 
 struct Coordinate: Decodable {
-    let longitude: Double
     let latitude: Double
-    
+    let longitude: Double
+   
     private enum CodingKeys: String, CodingKey {
-        case longitude = "lon"
         case latitude = "lat"
+        case longitude = "lon"
+    }
+}
+
+extension Coordinate {
+    var formatted: String {
+        return "\(latitude), \(longitude)"
     }
 }

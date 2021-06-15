@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CitiesService: CitiesServising {
+class CitiesService: CitiesServicing {
     private var groupedCities: [Character: [City]] = [:]
     
     func preloadCities() {
@@ -17,6 +17,7 @@ class CitiesService: CitiesServising {
                 return
             }
             do {
+                debugPrint("started preload cities")
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 let cities = try decoder.decode([City].self, from: data)
@@ -38,6 +39,7 @@ class CitiesService: CitiesServising {
         groupedCities = Dictionary(grouping: cities, by: { city -> Character in
             return city.name.first!
         })
+        
         // Ensure cities are sorted alphabetically inside each key
         groupedCities.keys.forEach { letter in
             self.groupedCities[letter]?.sort(by: { $0.displayName < $1.displayName })

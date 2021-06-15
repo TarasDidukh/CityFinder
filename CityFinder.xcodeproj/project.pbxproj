@@ -21,6 +21,9 @@
 		AA37556F2678BB4500CB807A /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37556E2678BB4500CB807A /* Coordinator.swift */; };
 		AA3755712678BB5D00CB807A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3755702678BB5D00CB807A /* AppCoordinator.swift */; };
 		AA3755732678BBDB00CB807A /* CitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3755722678BBDB00CB807A /* CitiesCoordinator.swift */; };
+		AA3755752678C4B800CB807A /* CitiesPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3755742678C4B800CB807A /* CitiesPresenting.swift */; };
+		AA3755772678C4C100CB807A /* CitesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3755762678C4C100CB807A /* CitesPresenter.swift */; };
+		AA37557A267908EA00CB807A /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA375579267908EA00CB807A /* CityCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		AA37556E2678BB4500CB807A /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		AA3755702678BB5D00CB807A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AA3755722678BBDB00CB807A /* CitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCoordinator.swift; sourceTree = "<group>"; };
+		AA3755742678C4B800CB807A /* CitiesPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesPresenting.swift; sourceTree = "<group>"; };
+		AA3755762678C4C100CB807A /* CitesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitesPresenter.swift; sourceTree = "<group>"; };
+		AA375579267908EA00CB807A /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +79,10 @@
 			isa = PBXGroup;
 			children = (
 				AA3755652678B0B100CB807A /* Domain */,
-				AA3755602678AF5A00CB807A /* Storyboards */,
 				AA37555D2678AEF600CB807A /* Models */,
 				AA37555E2678AF1B00CB807A /* Presenters */,
 				AA37555F2678AF3900CB807A /* Views */,
+				AA3755602678AF5A00CB807A /* Storyboards */,
 				AA37555C2678AEEB00CB807A /* Resources */,
 				AA3755462678AD8300CB807A /* AppDelegate.swift */,
 				AA3755542678AD8600CB807A /* Info.plist */,
@@ -105,6 +111,8 @@
 		AA37555E2678AF1B00CB807A /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				AA3755742678C4B800CB807A /* CitiesPresenting.swift */,
+				AA3755762678C4C100CB807A /* CitesPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -112,6 +120,7 @@
 		AA37555F2678AF3900CB807A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA375578267908C400CB807A /* Cells */,
 				AA37554A2678AD8300CB807A /* CitiesViewController.swift */,
 				AA37556A2678BADF00CB807A /* CitiesViewProtocol.swift */,
 			);
@@ -153,6 +162,14 @@
 				AA3755682678B15A00CB807A /* CitiesServicing.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AA375578267908C400CB807A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AA375579267908EA00CB807A /* CityCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +243,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA3755752678C4B800CB807A /* CitiesPresenting.swift in Sources */,
 				AA3755672678B0ED00CB807A /* CitiesService.swift in Sources */,
+				AA3755772678C4C100CB807A /* CitesPresenter.swift in Sources */,
+				AA37557A267908EA00CB807A /* CityCell.swift in Sources */,
 				AA37556B2678BADF00CB807A /* CitiesViewProtocol.swift in Sources */,
 				AA3755712678BB5D00CB807A /* AppCoordinator.swift in Sources */,
 				AA37554B2678AD8300CB807A /* CitiesViewController.swift in Sources */,

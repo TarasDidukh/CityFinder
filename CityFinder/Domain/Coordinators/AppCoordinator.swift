@@ -17,7 +17,7 @@ struct AppCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         router = UINavigationController()
-        citiesCoordinator = CitiesCoordinator()
+        citiesCoordinator = CitiesCoordinator(router: router)
     }
     
     // MARK: - Navigation
