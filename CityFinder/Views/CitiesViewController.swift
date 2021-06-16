@@ -12,6 +12,16 @@ class CitiesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Cities Finder"
+        setupSearchBar()
+    }
+    
+    private func setupSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 }
 
@@ -21,7 +31,7 @@ extension CitiesViewController: CitiesViewProtocol {
 
 extension CitiesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 20
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
