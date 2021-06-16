@@ -128,13 +128,13 @@ class CitiesService: CitiesServicing {
         
         // Ensure keys in the correct alphabetical order
         sortedKeys = groupedCities.keys.sorted(by: { left, right in
-            return String(left).localizedStandardCompare(String(right)) == .orderedAscending
+            return String(left).localizedCaseInsensitiveCompare(String(right)) == .orderedAscending
             
         })
         // Move any first non-alphabetical keys to the end
         if let firstAlphabetLetter = sortedKeys.firstIndex(where: { letter in
             return [ComparisonResult.orderedDescending,
-                    ComparisonResult.orderedSame].contains(String(letter).localizedStandardCompare("a"))
+                    ComparisonResult.orderedSame].contains(String(letter).localizedCaseInsensitiveCompare("a"))
         }) {
             sortedKeys = Array(sortedKeys.suffix(from: firstAlphabetLetter) + sortedKeys.prefix(firstAlphabetLetter))
         }
@@ -142,7 +142,7 @@ class CitiesService: CitiesServicing {
         // Ensure cities are sorted alphabetically inside each key
         groupedCities.keys.forEach { letter in
             self.groupedCities[letter]?.sort(by: { left, right in
-                return left.displayName.localizedStandardCompare(right.displayName) == .orderedAscending
+                return left.displayName.localizedCaseInsensitiveCompare(right.displayName) == .orderedAscending
             })
         }
     }
