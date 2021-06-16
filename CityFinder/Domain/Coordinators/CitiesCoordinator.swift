@@ -24,7 +24,6 @@ struct CitiesCoordinator: Coordinator {
         }
         
         let citiesServices = CitiesService()
-        citiesServices.preloadCities()
         let presenter = CitiesPresenter(citiesService: citiesServices, view: citiesViewController)
         citiesViewController.presenter = presenter
         

@@ -8,9 +8,14 @@
 import Foundation
 
 class CitiesService: CitiesServicing {
+    // MARK: - Properties
     private var groupedCities: [Character: [City]] = [:]
+    private var sortedKeys: [Character] = []
+    private var lastSearchQuery: String?
+    private var lastSearchIndex: Int = 0
     
-    func preloadCities() {
+    // MARK: - Public API
+    func preloadCities(completion: @escaping () -> Void) {
         DispatchQueue.global().async { [weak self] in
             guard let url = Bundle.main.url(forResource: "cities", withExtension: "json") else {
                 assertionFailure("cities.json file is missed in the project bundle")
@@ -23,10 +28,91 @@ class CitiesService: CitiesServicing {
                 let cities = try decoder.decode([City].self, from: data)
                 self?.preprocessCities(cities)
                 debugPrint("successfully preloaded cities")
+                completion()
             } catch {
                 // TODO: handle parsing error
                 print(error)
             }
+        }
+    }
+    
+    func searchCities(_ request: SearchCitiesRequest) -> Task {
+        let searchWorkItem = DispatchWorkItem { [weak self] in
+            self?.searchCititesExecute(request)
+        }
+        
+        DispatchQueue.global().async(execute: searchWorkItem)
+        
+        return searchWorkItem
+    }
+    
+    // MARK: - Private methods
+    private func searchCititesExecute(_ request: SearchCitiesRequest) {
+        // prepare parameters
+        let query = request.query?.lowercased()
+        let skip = request.skip
+        let take = request.take
+        let completion = request.completion
+        
+        // first case when query exists
+        if let query = query,
+           !query.isEmpty {
+            // searchFromIndex Improves performance in subsequent queries with the same prefix
+            // for example [1]: Ab; [2]: Abc
+            let searchFromIndex = query.starts(with: lastSearchQuery ?? "??") == true ? lastSearchIndex : 0
+            // O(1) get cities list with the same first letter
+            guard let citiesGroup = groupedCities[query.first!],
+                  // find the first index where search matches
+                  let lastSearchIndex = citiesGroup
+                    .lazy
+                    .suffix(from: searchFromIndex)
+                    .firstIndex(where: { $0.displayName.lowercased().starts(with: query) }) else {
+                completion([])
+                return
+            }
+            // save results for the next search
+            lastSearchQuery = query
+            self.lastSearchIndex = searchFromIndex + lastSearchIndex
+            // filter cities only for a list subrange
+            let result = citiesGroup
+                .suffix(from: lastSearchIndex + skip)
+                .prefix(take)
+                .filter { city in
+                    return city.displayName.lowercased().starts(with: query)
+                }
+            completion(result)
+        } else {
+            // second case - go through all cities
+            
+            // find the first city letter where needs to start
+            // accumulate skip index
+            // use optional unwrapping construction
+            var skipCounter = 0
+            guard let startKey = sortedKeys.firstIndex(where: { key in
+                    skipCounter += self.groupedCities[key]?.count ?? 0
+                    return skipCounter > skip
+                }),
+                // save cities result from the list of start key
+                var result = groupedCities[sortedKeys[startKey]]?
+                    .suffix(skipCounter - skip)
+                    .prefix(take) else {
+                completion([])
+                return
+            }
+            
+            // loop next keys until `take` parameter satisfies `result` list
+            let nextKeys = sortedKeys.suffix(from: startKey + 1)
+            for key in nextKeys {
+                let nextTake = take - result.count
+                if nextTake == 0 {
+                    break
+                }
+                if let nextCities = groupedCities[key]?.prefix(nextTake) {
+                    result.append(contentsOf: nextCities)
+                }
+            }
+            
+            completion(Array(result))
         }
     }
     
@@ -37,12 +123,27 @@ class CitiesService: CitiesServicing {
     private func preprocessCities(_ cities: [City]) {
         // The idea here is to group cities in the dictionary with an alphabetical letter as a key
         groupedCities = Dictionary(grouping: cities, by: { city -> Character in
-            return city.name.first!
+            return city.name.lowercased().first!
         })
+        
+        // Ensure keys in the correct alphabetical order
+        sortedKeys = groupedCities.keys.sorted(by: { left, right in
+            return String(left).localizedStandardCompare(String(right)) == .orderedAscending
+            
+        })
+        // Move any first non-alphabetical keys to the end
+        if let firstAlphabetLetter = sortedKeys.firstIndex(where: { letter in
+            return [ComparisonResult.orderedDescending,
+                    ComparisonResult.orderedSame].contains(String(letter).localizedStandardCompare("a"))
+        }) {
+            sortedKeys = Array(sortedKeys.suffix(from: firstAlphabetLetter) + sortedKeys.prefix(firstAlphabetLetter))
+        }
         
         // Ensure cities are sorted alphabetically inside each key
         groupedCities.keys.forEach { letter in
-            self.groupedCities[letter]?.sort(by: { $0.displayName < $1.displayName })
+            self.groupedCities[letter]?.sort(by: { left, right in
+                return left.displayName.localizedStandardCompare(right.displayName) == .orderedAscending
+            })
         }
     }
 }
