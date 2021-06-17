@@ -3,4 +3,134 @@
    uuid = "434C6403-6A62-44BC-9F39-5DDC67F98CFE"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA562684-067E-435A-963B-07C5DB45AD7F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CityFinderTests/CititesServiceTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "testAllCitiesCount()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A2710641-B256-4995-89D0-E6757A70C0DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CityFinder/Domain/Services/CitiesService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "preprocessCities(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A2710641-B256-4995-89D0-E6757A70C0DE - 8a7f3ab74012aec6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CityFinder.CitiesService.preprocessCities(Swift.Array&lt;CityFinder.City&gt;) -&gt; ()"
+                  moduleName = "CityFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/didukh/iOS%20Projects/CityFinder/CityFinder/Domain/Services/CitiesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "1213">
+               </Location>
+               <Location
+                  uuid = "A2710641-B256-4995-89D0-E6757A70C0DE - 58b3dbce57c4446f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #4 (CityFinder.City) -&gt; Swift.Character in CityFinder.CitiesService.preprocessCities(Swift.Array&lt;CityFinder.City&gt;) -&gt; ()"
+                  moduleName = "CityFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/didukh/iOS%20Projects/CityFinder/CityFinder/Domain/Services/CitiesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DAE5B8B-5557-4F37-A66B-FBBDE8D2921F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CityFinder/Domain/Services/CitiesService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "preprocessCities(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3DAE5B8B-5557-4F37-A66B-FBBDE8D2921F - 8a7f3ab74012aec6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CityFinder.CitiesService.preprocessCities(Swift.Array&lt;CityFinder.City&gt;) -&gt; ()"
+                  moduleName = "CityFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/didukh/iOS%20Projects/CityFinder/CityFinder/Domain/Services/CitiesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "146"
+                  endingLineNumber = "146"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  uuid = "3DAE5B8B-5557-4F37-A66B-FBBDE8D2921F - ce9867336a184869"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (CityFinder.City) -&gt; Swift.Character in CityFinder.CitiesService.preprocessCities(Swift.Array&lt;CityFinder.City&gt;) -&gt; ()"
+                  moduleName = "CityFinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/didukh/iOS%20Projects/CityFinder/CityFinder/Domain/Services/CitiesService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C20A8DFE-4429-450D-B25B-678E333528E6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CityFinderTests/CititesServiceTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "testEmptyPrefixPerfomance()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

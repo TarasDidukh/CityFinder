@@ -13,6 +13,7 @@ class CitiesService: CitiesServicing {
     private var sortedKeys: [Character] = []
     private var lastSearchQuery: String?
     private var lastSearchIndex: Int = 0
+    private var lastSeachTask: Task?
     
     // MARK: - Public API
     func preloadCities(completion: @escaping () -> Void) {
@@ -36,14 +37,22 @@ class CitiesService: CitiesServicing {
         }
     }
     
+    @discardableResult
     func searchCities(_ request: SearchCitiesRequest) -> Task {
         let searchWorkItem = DispatchWorkItem { [weak self] in
             self?.searchCititesExecute(request)
         }
+        lastSeachTask = searchWorkItem
         
         DispatchQueue.global().async(execute: searchWorkItem)
         
         return searchWorkItem
+    }
+    
+    func resetDefaultState() {
+        lastSearchQuery = nil
+        lastSearchIndex = 0
+        lastSeachTask?.cancel()
     }
     
     // MARK: - Private methods
@@ -82,7 +91,7 @@ class CitiesService: CitiesServicing {
                 }
             completion(result)
         } else {
-            // second case - go through all cities
+            // second case - go through all letter keys
             
             // find the first city letter where needs to start
             // accumulate skip index
@@ -92,7 +101,7 @@ class CitiesService: CitiesServicing {
                     skipCounter += self.groupedCities[key]?.count ?? 0
                     return skipCounter > skip
                 }),
-                // save cities result from the list of start key
+                // save cities result from the list of a start key
                 var result = groupedCities[sortedKeys[startKey]]?
                     .suffix(skipCounter - skip)
                     .prefix(take) else {
@@ -118,7 +127,7 @@ class CitiesService: CitiesServicing {
     
     /// Helper to prepare cities for using
     ///
-    /// Should be used in a background queue
+    /// Long-running operation >>> Should be used in a background queue
     /// - Parameter cities: list of city
     private func preprocessCities(_ cities: [City]) {
         // The idea here is to group cities in the dictionary with an alphabetical letter as a key
