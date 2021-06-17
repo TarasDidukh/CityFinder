@@ -1,5 +1,5 @@
 //
-//  CititesServiceMock.swift
+//  CitiesServiceMock.swift
 //  CityFinderTests
 //
 //  Created by Taras Didukh on 17.06.2021.

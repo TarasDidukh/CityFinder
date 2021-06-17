@@ -1,5 +1,5 @@
 //
-//  CititesPresenter.swift
+//  CitiesPresenter.swift
 //  CityFinder
 //
 //  Created by Taras Didukh on 15.06.2021.
@@ -9,7 +9,7 @@ import Foundation
 
 class CitiesPresenter: CitiesPresenting {
     // MARK: - Properties
-    private(set) var filteredCitites: [City] = []
+    private(set) var filteredCities: [City] = []
     private(set) var searchQuery: String?
     
     private(set) var nextResultsExist = false
@@ -49,16 +49,16 @@ class CitiesPresenter: CitiesPresenting {
     
     // MARK: - Private methods
     private func performSearch(isNext: Bool = false) {
-        let skipCount = isNext ? filteredCitites.count : 0
+        let skipCount = isNext ? filteredCities.count : 0
         let request = SearchCitiesRequest(query: searchQuery, skip: skipCount, take: takeCount) { [weak self] cities in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.isLoading = false
                 self.nextResultsExist = !cities.isEmpty && cities.count.isMultiple(of: self.takeCount)
                 if isNext {
-                    self.filteredCitites.append(contentsOf: cities)
+                    self.filteredCities.append(contentsOf: cities)
                 } else {
-                    self.filteredCitites = cities
+                    self.filteredCities = cities
                 }
                 self.view.didSearchCities()
             }
@@ -85,6 +85,6 @@ extension CitiesPresenter {
     }
     
     func citySelected(at index: Int) {
-        coordinator.showMap(for: filteredCitites[index])
+        coordinator.showMap(for: filteredCities[index])
     }
 }

@@ -32,7 +32,7 @@ class ProductTests: XCTestCase {
         let expectedCount = 209557
         var actualCount = 0
         
-        let expectation = expectation(description: "found all cities")
+        let expectation = self.expectation(description: "found all cities")
         citiesService.searchCities(SearchCitiesRequest(query: nil, skip: 0, take: Int.max, completion: { cities in
             actualCount = cities.count
             expectation.fulfill()
@@ -46,7 +46,7 @@ class ProductTests: XCTestCase {
         let take = 50
         var cities: [City] = []
         
-        let expectation = expectation(description: "found up to \(take) cities")
+        let expectation = self.expectation(description: "found up to \(take) cities")
         
         citiesService.searchCities(SearchCitiesRequest(query: nil, skip: 200, take: take, completion: { result in
             cities = result
@@ -66,21 +66,21 @@ class ProductTests: XCTestCase {
         let searchQuery = "Alb"
         var cities: [City] = []
         
-        let expectation = expectation(description: "found up to \(take) cities for prefix \(searchQuery)")
+        let expectation = self.expectation(description: "found up to \(take) cities for prefix \(searchQuery)")
         
         citiesService.searchCities(SearchCitiesRequest(query: searchQuery, skip: 30, take: take, completion: { result in
             cities = result
             expectation.fulfill()
         }))
         wait(for: [expectation], timeout: 5)
-        let expectedCitites = DataUtils.getPartialTestResult()
+        let expectedCities = DataUtils.getPartialTestResult()
         
-        XCTAssertEqual(cities, expectedCitites)
+        XCTAssertEqual(cities, expectedCities)
     }
     
     func testNoResults() {
         var cities: [City] = []
-        let expectation = expectation(description: "found 0 cities")
+        let expectation = self.expectation(description: "found 0 cities")
         
         citiesService.searchCities(SearchCitiesRequest(query: "-/~`-=%^=34", skip: 0, take: 10, completion: { result in
             cities = result
@@ -93,7 +93,7 @@ class ProductTests: XCTestCase {
     
     func testExceedLimit() {
         var cities: [City] = []
-        let expectation = expectation(description: "found 0 cities")
+        let expectation = self.expectation(description: "found 0 cities")
         
         citiesService.searchCities(SearchCitiesRequest(query: "Alb", skip: 5000, take: 10, completion: { result in
             cities = result
@@ -106,7 +106,7 @@ class ProductTests: XCTestCase {
     
     func testEmptyPrefixPerfomance() {
         measure {
-            let expectation = expectation(description: "found 0 cities")
+            let expectation = self.expectation(description: "found 0 cities")
             citiesService.searchCities(SearchCitiesRequest(query: nil, skip: 10000, take: 10000, completion: { result in
                 expectation.fulfill()
             }))
@@ -116,7 +116,7 @@ class ProductTests: XCTestCase {
     
     func testPartialSearchPerformance() {
         measure {
-            let expectation = expectation(description: "found 0 cities")
+            let expectation = self.expectation(description: "found 0 cities")
             citiesService.searchCities(SearchCitiesRequest(query: "Ab", skip: 100, take: 6000, completion: { result in
                 expectation.fulfill()
             }))

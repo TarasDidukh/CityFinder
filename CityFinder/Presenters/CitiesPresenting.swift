@@ -11,7 +11,7 @@ protocol CitiesPresenting: AnyObject {
     /// Checks whether lazy loading next portion available
     var nextResultsExist: Bool { get }
     /// Current cities according to a query input
-    var filteredCitites: [City] { get }
+    var filteredCities: [City] { get }
     
     /// Should be called every time a query input has changed
     ///

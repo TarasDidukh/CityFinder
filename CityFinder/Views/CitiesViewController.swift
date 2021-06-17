@@ -68,24 +68,24 @@ extension CitiesViewController: CitiesViewProtocol {
         
         self.tableView.reloadData()
         self.tableView.tableFooterView = self.presenter.nextResultsExist ? self.loadNextFooterView : self.emptyFooterView
-        self.noResultsLabel.isHidden = !self.presenter.filteredCitites.isEmpty
+        self.noResultsLabel.isHidden = !self.presenter.filteredCities.isEmpty
     }
 }
 
 // MARK: - UITableViewDataSource, UITableViewDelegate
 extension CitiesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.filteredCitites.count
+        return presenter.filteredCities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cityCell = tableView.dequeueReusableCell(withIdentifier: CityCell.id, for: indexPath) as! CityCell
-        cityCell.city = presenter.filteredCitites[indexPath.row]
+        cityCell.city = presenter.filteredCities[indexPath.row]
         return cityCell
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if presenter.filteredCitites.count - indexPath.row == 3 {
+        if presenter.filteredCities.count - indexPath.row == 3 {
             presenter.loadNextResults()
         }
     }

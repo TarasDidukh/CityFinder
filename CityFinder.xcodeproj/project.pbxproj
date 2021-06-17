@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA075DA0267B0F6200F74567 /* CititesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA075D9F267B0F6200F74567 /* CititesServiceTests.swift */; };
-		AA075DA2267B11C000F74567 /* CititesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA075DA1267B11C000F74567 /* CititesServiceMock.swift */; };
+		AA075DA0267B0F6200F74567 /* CitiesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA075D9F267B0F6200F74567 /* CitiesServiceTests.swift */; };
+		AA075DA2267B11C000F74567 /* CitiesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA075DA1267B11C000F74567 /* CitiesServiceMock.swift */; };
 		AA075DA4267B26C700F74567 /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA075DA3267B26C700F74567 /* DataUtils.swift */; };
 		AA207056267A9324000C290E /* SearchCitiesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA207055267A9324000C290E /* SearchCitiesRequest.swift */; };
 		AA207058267A9557000C290E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA207057267A9557000C290E /* Task.swift */; };
@@ -49,8 +49,8 @@
 /* Begin PBXFileReference section */
 		AA075D95267B0F1600F74567 /* CityFinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CityFinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA075D99267B0F1600F74567 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AA075D9F267B0F6200F74567 /* CititesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CititesServiceTests.swift; sourceTree = "<group>"; };
-		AA075DA1267B11C000F74567 /* CititesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CititesServiceMock.swift; sourceTree = "<group>"; };
+		AA075D9F267B0F6200F74567 /* CitiesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesServiceTests.swift; sourceTree = "<group>"; };
+		AA075DA1267B11C000F74567 /* CitiesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesServiceMock.swift; sourceTree = "<group>"; };
 		AA075DA3267B26C700F74567 /* DataUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
 		AA207055267A9324000C290E /* SearchCitiesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCitiesRequest.swift; sourceTree = "<group>"; };
 		AA207057267A9557000C290E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				AA075D99267B0F1600F74567 /* Info.plist */,
-				AA075D9F267B0F6200F74567 /* CititesServiceTests.swift */,
-				AA075DA1267B11C000F74567 /* CititesServiceMock.swift */,
+				AA075D9F267B0F6200F74567 /* CitiesServiceTests.swift */,
+				AA075DA1267B11C000F74567 /* CitiesServiceMock.swift */,
 				AA075DA3267B26C700F74567 /* DataUtils.swift */,
 			);
 			path = CityFinderTests;
@@ -341,8 +341,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA075DA4267B26C700F74567 /* DataUtils.swift in Sources */,
-				AA075DA0267B0F6200F74567 /* CititesServiceTests.swift in Sources */,
-				AA075DA2267B11C000F74567 /* CititesServiceMock.swift in Sources */,
+				AA075DA0267B0F6200F74567 /* CitiesServiceTests.swift in Sources */,
+				AA075DA2267B11C000F74567 /* CitiesServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +409,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CityFinderTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -429,7 +429,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CityFinderTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

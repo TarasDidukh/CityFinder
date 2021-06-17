@@ -40,7 +40,7 @@ class CitiesService: CitiesServicing {
     @discardableResult
     func searchCities(_ request: SearchCitiesRequest) -> Task {
         let searchWorkItem = DispatchWorkItem { [weak self] in
-            self?.searchCititesExecute(request)
+            self?.searchCitiesExecute(request)
         }
         lastSeachTask = searchWorkItem
         
@@ -56,7 +56,7 @@ class CitiesService: CitiesServicing {
     }
     
     // MARK: - Private methods
-    private func searchCititesExecute(_ request: SearchCitiesRequest) {
+    private func searchCitiesExecute(_ request: SearchCitiesRequest) {
         // prepare parameters
         let query = request.query?.lowercased()
         let skip = request.skip
