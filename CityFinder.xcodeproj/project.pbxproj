@@ -30,6 +30,10 @@
 		AA3755752678C4B800CB807A /* CitiesPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3755742678C4B800CB807A /* CitiesPresenting.swift */; };
 		AA3755772678C4C100CB807A /* CitesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3755762678C4C100CB807A /* CitesPresenter.swift */; };
 		AA37557A267908EA00CB807A /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA375579267908EA00CB807A /* CityCell.swift */; };
+		AAAC8DDB267B714C00AAB528 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC8DDA267B714C00AAB528 /* MapViewController.swift */; };
+		AAAC8DDD267B716500AAB528 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC8DDC267B716500AAB528 /* MapPresenter.swift */; };
+		AAAC8DDF267B716D00AAB528 /* MapPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC8DDE267B716D00AAB528 /* MapPresenting.swift */; };
+		AAAC8DE3267B73C500AAB528 /* MapViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC8DE2267B73C500AAB528 /* MapViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		AA3755742678C4B800CB807A /* CitiesPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesPresenting.swift; sourceTree = "<group>"; };
 		AA3755762678C4C100CB807A /* CitesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitesPresenter.swift; sourceTree = "<group>"; };
 		AA375579267908EA00CB807A /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		AAAC8DDA267B714C00AAB528 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AAAC8DDC267B716500AAB528 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		AAAC8DDE267B716D00AAB528 /* MapPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenting.swift; sourceTree = "<group>"; };
+		AAAC8DE2267B73C500AAB528 /* MapViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +175,8 @@
 			children = (
 				AA3755742678C4B800CB807A /* CitiesPresenting.swift */,
 				AA3755762678C4C100CB807A /* CitesPresenter.swift */,
+				AAAC8DDC267B716500AAB528 /* MapPresenter.swift */,
+				AAAC8DDE267B716D00AAB528 /* MapPresenting.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -177,6 +187,8 @@
 				AA375578267908C400CB807A /* Cells */,
 				AA37554A2678AD8300CB807A /* CitiesViewController.swift */,
 				AA37556A2678BADF00CB807A /* CitiesViewProtocol.swift */,
+				AAAC8DDA267B714C00AAB528 /* MapViewController.swift */,
+				AAAC8DE2267B73C500AAB528 /* MapViewProtocol.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -349,11 +361,15 @@
 				AA3755692678B15A00CB807A /* CitiesServicing.swift in Sources */,
 				AA3755472678AD8300CB807A /* AppDelegate.swift in Sources */,
 				AA20705D267A9643000C290E /* DispatchWorkItem+Extension.swift in Sources */,
+				AAAC8DE3267B73C500AAB528 /* MapViewProtocol.swift in Sources */,
+				AAAC8DDF267B716D00AAB528 /* MapPresenting.swift in Sources */,
+				AAAC8DDD267B716500AAB528 /* MapPresenter.swift in Sources */,
 				AA3755622678AFA200CB807A /* City.swift in Sources */,
 				AA3755642678B05B00CB807A /* Coordinate.swift in Sources */,
 				AA207056267A9324000C290E /* SearchCitiesRequest.swift in Sources */,
 				AA37556F2678BB4500CB807A /* Coordinator.swift in Sources */,
 				AA3755732678BBDB00CB807A /* CitiesCoordinator.swift in Sources */,
+				AAAC8DDB267B714C00AAB528 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

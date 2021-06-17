@@ -31,12 +31,15 @@ class CitiesPresenter: CitiesPresenting {
     private let takeCount = 30
     private let citiesService: CitiesServicing
     private unowned let view: CitiesViewProtocol
+    private let coordinator: CitiesCoordinating
     
     // MARK: - Init
     init(citiesService: CitiesServicing,
-         view: CitiesViewProtocol) {
+         view: CitiesViewProtocol,
+         coordinator: CitiesCoordinating) {
         self.citiesService = citiesService
         self.view = view
+        self.coordinator = coordinator
         
         citiesService.preloadCities { [weak self] in
             self?.citiesLoaded = true
@@ -79,5 +82,9 @@ extension CitiesPresenter {
     
     func cancelSearchPressed() {
         searchQueryChanged(to: nil)
+    }
+    
+    func citySelected(at index: Int) {
+        coordinator.showMap(for: filteredCitites[index])
     }
 }

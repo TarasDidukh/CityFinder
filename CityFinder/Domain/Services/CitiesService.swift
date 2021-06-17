@@ -31,8 +31,8 @@ class CitiesService: CitiesServicing {
                 debugPrint("successfully preloaded cities")
                 completion()
             } catch {
-                // TODO: handle parsing error
-                print(error)
+                debugPrint("error occured: \(error)")
+                debugPrint("check cities.json file and its format")
             }
         }
     }

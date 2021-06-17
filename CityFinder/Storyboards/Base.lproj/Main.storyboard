@@ -115,6 +115,35 @@
             </objects>
             <point key="canvasLocation" x="-830" y="-88"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="4gc-yx-ZBl">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="9nd-7h-hs9" customClass="MapViewController" customModule="CityFinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UYG-by-Eo7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mT4-Zu-ORi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="YBM-UA-qWK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="YBM-UA-qWK" firstAttribute="trailing" secondItem="mT4-Zu-ORi" secondAttribute="trailing" id="Fnh-6W-k2v"/>
+                            <constraint firstItem="mT4-Zu-ORi" firstAttribute="top" secondItem="YBM-UA-qWK" secondAttribute="top" id="QgH-Kk-KaH"/>
+                            <constraint firstItem="YBM-UA-qWK" firstAttribute="bottom" secondItem="mT4-Zu-ORi" secondAttribute="bottom" id="c14-gt-DWW"/>
+                            <constraint firstItem="mT4-Zu-ORi" firstAttribute="leading" secondItem="YBM-UA-qWK" secondAttribute="leading" id="w32-dz-7A4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="mT4-Zu-ORi" id="79a-W6-8wm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bKW-UL-vZQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6" y="-88"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

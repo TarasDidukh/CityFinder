@@ -89,6 +89,11 @@ extension CitiesViewController: UITableViewDataSource, UITableViewDelegate {
             presenter.loadNextResults()
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.citySelected(at: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - UISearchBarDelegate implementation

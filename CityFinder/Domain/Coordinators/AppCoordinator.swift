@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct AppCoordinator: Coordinator {
+class AppCoordinator: Coordinator {
     // MARK: - Properties
     let window: UIWindow
     let router: UINavigationController

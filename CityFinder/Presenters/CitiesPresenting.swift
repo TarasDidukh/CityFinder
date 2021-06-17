@@ -24,4 +24,7 @@ protocol CitiesPresenting: AnyObject {
     
     /// Resets search query and loads a default cities list
     func cancelSearchPressed()
+    
+    /// Navigates to the map with a city location
+    func citySelected(at index: Int)
 }
