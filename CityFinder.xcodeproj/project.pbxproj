@@ -130,11 +130,11 @@
 		AA3755452678AD8300CB807A /* CityFinder */ = {
 			isa = PBXGroup;
 			children = (
-				AA20705B267A9625000C290E /* Extensions */,
 				AA3755652678B0B100CB807A /* Domain */,
 				AA37555D2678AEF600CB807A /* Models */,
 				AA37555E2678AF1B00CB807A /* Presenters */,
 				AA37555F2678AF3900CB807A /* Views */,
+				AA20705B267A9625000C290E /* Extensions */,
 				AA3755602678AF5A00CB807A /* Storyboards */,
 				AA37555C2678AEEB00CB807A /* Resources */,
 				AA3755462678AD8300CB807A /* AppDelegate.swift */,

@@ -6,5 +6,6 @@
 //
 
 protocol CitiesViewProtocol: AnyObject {
-    
+    func didPreloadCities()
+    func didSearchCities()
 }

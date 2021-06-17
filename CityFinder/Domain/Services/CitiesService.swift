@@ -44,7 +44,7 @@ class CitiesService: CitiesServicing {
         }
         lastSeachTask = searchWorkItem
         
-        DispatchQueue.global().async(execute: searchWorkItem)
+        DispatchQueue.global(qos: .background).async(execute: searchWorkItem)
         
         return searchWorkItem
     }
@@ -73,15 +73,14 @@ class CitiesService: CitiesServicing {
             guard let citiesGroup = groupedCities[query.first!],
                   // find the first index where search matches
                   let lastSearchIndex = citiesGroup
-                    .lazy
                     .suffix(from: searchFromIndex)
                     .firstIndex(where: { $0.displayName.lowercased().starts(with: query) }) else {
                 completion([])
                 return
             }
             // save results for the next search
-            lastSearchQuery = query
-            self.lastSearchIndex = searchFromIndex + lastSearchIndex
+            self.lastSearchQuery = query
+            self.lastSearchIndex = lastSearchIndex
             // filter cities only for a list subrange
             let result = citiesGroup
                 .suffix(from: lastSearchIndex + skip)
