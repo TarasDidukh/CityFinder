@@ -9,8 +9,8 @@ import Foundation
 
 @testable import CityFinder
 
-class CititesServiceMock: CitiesService {
-    static let shared = CititesServiceMock()
+class CitiesServiceMock: CitiesService {
+    static let shared = CitiesServiceMock()
     private override init() { super.init() }
     private var completions: [() -> Void] = []
     

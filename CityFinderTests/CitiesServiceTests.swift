@@ -1,5 +1,5 @@
 //
-//  CititesServiceTests.swift
+//  CitiesServiceTests.swift
 //  CityFinderTests
 //
 //  Created by Taras Didukh on 17.06.2021.
@@ -16,7 +16,7 @@ extension City: Equatable {
 }
 
 class ProductTests: XCTestCase {
-    private var citiesService = CititesServiceMock.shared
+    private var citiesService = CitiesServiceMock.shared
     
     override func setUp() {
         super.setUp()
